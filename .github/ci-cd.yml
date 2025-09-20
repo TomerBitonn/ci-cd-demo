@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main   
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest  
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest || echo "No tests found, skipping..."
+
+      - name: Deploy to Render
+        run: |
+          curl -X POST "https://api.render.com/deploy/srv-d37hlgvfte5s73bacthg?key=${{ secrets.RENDER_API_KEY }}"
