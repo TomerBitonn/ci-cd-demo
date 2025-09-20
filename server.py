@@ -5,4 +5,5 @@ app = Flask(__name__)
 
 @app.route('/')
 def Home():
-    return "My first CI/CD with Flask on Render"
+    print("If you see this the pipeline is working")
+    return "First CI/CD with Flask on Render"
