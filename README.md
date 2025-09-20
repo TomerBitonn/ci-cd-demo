@@ -78,7 +78,7 @@ flowchart LR
 
 * This project is not a portfolio project - it’s only a learning playground.
 
-* print() statements from Flask appear only in Render’s logs, not in the browser.
+* ```print()``` statements from Flask appear only in Render’s logs, not in the browser.
 
 * Render automatically provides a free SSL certificate (HTTPS).
 
